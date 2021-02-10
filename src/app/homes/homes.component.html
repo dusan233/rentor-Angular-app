@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="header">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="main">
+        <div class="results">
+            <div *ngIf="!loading && properties.length">
+                <app-property *ngFor="let property of properties" [property]="property"></app-property>
+            </div>
+            <app-spinner *ngIf="loading"></app-spinner>
+        </div>
+
+        <div class="map">
+            <app-map></app-map>
+        </div>
+    </div>
+</div>

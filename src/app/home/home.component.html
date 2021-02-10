@@ -1,0 +1,18 @@
+<div class="home__container">
+    <!-- <img src="../../assets//c8dd7889-d579-49c7-9650-24ff71a82190.webp" alt=""> -->
+    <div class="home__content">
+        <div *ngIf="searchType==='rent'" class="home__heading">
+            <h1>Discover your perfect rental</h1>
+            <p>Search nearby apartments, condos, and homes for rent</p>
+        </div>
+        <!-- <div *ngIf="searchType==='buy'" class="home__heading">
+            <h1>Discover your perfect home</h1>
+            <p>With the most complete source of homes for sale & real estate near you</p>
+        </div>
+        <ul class="home__nav">
+            <li [ngClass]="{'active': searchType==='buy'}" (click)="onChangeSearchType('buy')">BUY</li>
+            <li [ngClass]="{'active': searchType==='rent'}" (click)="onChangeSearchType('rent')">RENT</li>
+        </ul> -->
+        <app-search [searchType]='searchType'></app-search>
+    </div>
+</div>

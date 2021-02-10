@@ -1,0 +1,29 @@
+.navbar {
+  height: 50px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+}
+.logo {
+  width: 150px;
+  height: 50px;
+  color: #e46e6e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  cursor: pointer;
+}
+.logo span {
+  color: black;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.favourites {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 22px;
+}

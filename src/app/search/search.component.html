@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" (keydown)="onKeyDown($event)" class="search-form" [formGroup]="searchForm" >
+    <div class="input-wrap">
+        <input
+        formControlName="searchInput"
+        data-index="-1"
+        type="text" placeholder="Enter city name">
+        <button (click)="clearInput()" *ngIf="showClearBtn" class="clear-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <button [disabled]='!canSubmit' class="search-btn" type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <ul *ngIf="cities.length && inputFocused" class="cities-list">
+        <li
+        
+         (keydown)="onSelectCity($event, city.city + ', ' + city.state_code, city.centroid)" (click)="onSelectCity($event, city.city + ', ' + city.state_code, city.centroid)" *ngFor="let city of cities; let i = index" [attr.data-index]="i.toString()" tabindex="0">
+            <span class="item-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </span>
+            {{city.city}}, {{city.state_code}}
+        </li>
+    </ul>
+</form>

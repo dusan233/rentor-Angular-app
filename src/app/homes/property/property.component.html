@@ -1,0 +1,47 @@
+<div class="property">
+    <div class="property__container">
+        <div class="image-container">
+            <a [href]="property.rdc_web_url" target="_blank">
+                <img [src]="property.photos[0].href" [alt]="property.community.name">
+            </a>
+        </div>
+        <div class="property__content">
+            <div class="property__up">
+                <div class="part-one">
+                    <span class="property__type">
+                        {{getPropertyStatus()}}
+                    </span>
+                <h2 class="property__name">
+                    {{property.community.name}}
+                </h2>
+                </div>
+            <div class="part-two">
+                <div class="property__save">
+                    <i class="far fa-heart"></i>
+                </div>
+            </div>
+            </div>
+            <div class="property__details">
+                <div class="property__detail">
+                    {{property.community.beds_max}} beds
+                </div>
+                <div class="property__detail">
+                    {{property.community.baths_max}} baths
+                </div>
+                <div *ngIf="property.community.sqft_min" class="property__detail">
+                    {{property.community.sqft_min}}+ sqft
+                </div>
+                
+            </div>
+            <div class="property__price">
+                <a class="btn-classic" target="_blank" [href]="property.rdc_web_url">View Details</a>
+                <div class="price-container">
+                    <div class="price-number">${{property.community.price_min}}</div>
+                    <div *ngIf="property.prop_status === 'for_rent'" class="price-monthly"> /month</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="property__divider"></div>
+</div>
