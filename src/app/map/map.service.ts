@@ -7,8 +7,8 @@ import { Property } from '../homes/home-model';
 })
 export class MapService {
   
-  map: mapboxgl.Map
-  
+  map: mapboxgl.Map;
+  markers: mapboxgl.Marker[] = [];
   constructor() { 
     
   }
@@ -51,9 +51,11 @@ export class MapService {
       `;
       el.classList.add('marker');
 
-      new mapboxgl.Marker(el)
+      const marker = new mapboxgl.Marker(el)
         .setLngLat(property.address)
         .setPopup(popup)
         .addTo(this.map);
+
+      this.markers.push(marker);
   }
 }

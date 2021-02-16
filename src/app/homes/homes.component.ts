@@ -34,9 +34,14 @@ export class HomesComponent implements OnInit {
       this.loading = true;
       this.homesService.getHomes(transformedParams, type).subscribe((data) => {
         console.log(data);
-        this.mapService.changeCenter({lat, lon})
+        this.mapService.changeCenter({lat, lon});
+        this.mapService.markers.forEach(el => {
+          el.remove();
+        })
+        this.mapService.markers = [];
         this.properties = data.properties;
         this.loading = false;
+        
         data.properties.forEach(prop => {
           this.mapService.addMarkerPopupForProperty(prop);
         })
