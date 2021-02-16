@@ -13,11 +13,11 @@ export class MapService {
     
   }
 
-  buildMap() {
+  buildMap(lon: number, lat: number) {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-74.5, 40],
+      center: [lon, lat],
       zoom: 8,
       accessToken: 'pk.eyJ1IjoiZHVzYW4yMyIsImEiOiJja2t3czR2bzYyOXMwMm9xbnVxem9xcmtkIn0.LEbwRcmyPL_To6WjbosFhQ'
     })
