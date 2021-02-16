@@ -6,31 +6,47 @@
         <form [formGroup]="filters">
             
             <app-filter (filterClosed)="onSaveFilterPropertyType()" filterName="Property type">
-            <div formGroupName="propType" class="filters__prop-type">
-                <label class="filters__checkbox" for="condo">
-                    <input formControlName="condo" id="condo" type="checkbox">
-                    Condo
-                </label>
-                <label class="filters__checkbox" for="single">
-                    <input formControlName="single_family" id="single" type="checkbox">
-                    Single Family
-                </label>
-                <label class="filters__checkbox" for="multi">
-                    <input formControlName="multi_family" id="multi" type="checkbox">
-                    Multi Family
-                </label>
-                <label class="filters__checkbox" for="apartment">
-                    <input formControlName="apartment" id="apartment" type="checkbox">
-                    Apartment
-                </label>
-                <div class="filters__controls">
-                    <button (click)="onClearFilterPropertyType()" class="filters__clear">Clear</button>
-                    <button (click)="onSaveFilterPropertyType()" class="filters__save">Save</button>
+                <div formGroupName="propType" class="filters__prop-type">
+                    <label class="filters__checkbox" for="condo">
+                        <input formControlName="condo" id="condo" type="checkbox">
+                        Condo
+                    </label>
+                    <label class="filters__checkbox" for="single">
+                        <input formControlName="single_family" id="single" type="checkbox">
+                        Single Family
+                    </label>
+                    <label class="filters__checkbox" for="multi">
+                        <input formControlName="multi_family" id="multi" type="checkbox">
+                        Multi Family
+                    </label>
+                    <label class="filters__checkbox" for="apartment">
+                        <input formControlName="apartment" id="apartment" type="checkbox">
+                        Apartment
+                    </label>
+                    <div class="filters__controls">
+                        <button (click)="onClearFilterPropertyType()" class="filters__clear">Clear</button>
+                        <button (click)="onSaveFilterPropertyType()" class="filters__save">Save</button>
+                    </div>
                 </div>
-            </div>
             </app-filter>
-            <app-filter filterName="Price">
-                <h3>Hello there motherfuckers</h3>
+            <app-filter (filterClosed)="onSaveFilterPrice()" filterName="Price">
+                <div formGroupName="price" class="filters__price">
+                   <div class="filters__price-container">
+                        <div class="filters__price-wrap">
+                            <div>min. price</div>
+                            <input formControlName="price_min" type="number" placeholder="$">
+                        </div>
+                        <div class="filters__price-wrap">
+                            <div>max. price</div>
+                            <input formControlName="price_max" type="number" placeholder="$">
+                        </div>
+                   </div>
+                    <div class="filters__controls">
+                        <button (click)="onClearFilterPrice()" class="filters__clear">Clear</button>
+                        <button (click)="onSaveFilterPrice()" class="filters__save">Save</button>
+                    </div>
+                </div>
+                
             </app-filter>
         </form>
     </div>

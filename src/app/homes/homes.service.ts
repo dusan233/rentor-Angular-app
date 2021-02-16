@@ -25,9 +25,11 @@ export class HomesService {
     if(type === "rent") {
       return this.http.get<PropertiesResponse>('https://realtor.p.rapidapi.com/properties/v2/list-for-rent', {
         params: {
+          price_min: '0',
+          price_max: "2000",
           ...params,
-        limit: "20",
-        offset: "0"
+          limit: "20",
+          offset: "0"
         }
       })
     }

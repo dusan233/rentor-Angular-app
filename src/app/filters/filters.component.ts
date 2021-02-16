@@ -31,10 +31,37 @@ export class FiltersComponent implements OnInit {
         single_family: new FormControl(createPropTypeFilters('single_family')),
         multi_family: new FormControl(createPropTypeFilters('multi_family')),
         apartment: new FormControl(createPropTypeFilters('apartment')),
+      }),
+      price: new FormGroup({
+        price_min: new FormControl(this.route.snapshot.queryParams.price_min || 0),
+        price_max: new FormControl(this.route.snapshot.queryParams.price_max || 2000)
       })
     })
 
     
+  }
+
+  onSaveFilterPrice() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        price_min: this.filters.get(['price', 'price_min']).value,
+        price_max: this.filters.get(['price', 'price_max']).value
+      },
+      queryParamsHandling: 'merge'
+    })
+  }
+  onClearFilterPrice() {
+    this.filters.get(['price', 'price_min']).setValue(0);
+    this.filters.get(['price', 'price_max']).setValue(2000);
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        price_min: null,
+        price_max: null
+      },
+      queryParamsHandling: 'merge'
+    })
   }
 
   onSaveFilterPropertyType() {
