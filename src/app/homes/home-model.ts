@@ -3,7 +3,7 @@ export interface Property {
         lat: number,
         lon: number,
     },
-    community: {
+    community?: {
         name: string,
         price_min: number,
         baths_max: number,

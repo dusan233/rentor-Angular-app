@@ -1,0 +1,26 @@
+.filter {
+  position: relative;
+}
+.filter__btn {
+  padding: 5px 20px;
+  border-radius: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 10px;
+}
+.filter__btn:hover {
+  border-color: black;
+}
+.filter__content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  background: white;
+  border: 0.5px solid rgba(26, 19, 19, 0.28) !important;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 10px 37px !important;
+}

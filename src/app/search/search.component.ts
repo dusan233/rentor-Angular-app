@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IAutocomplete } from './autocomplete-model';
 import { City } from './city-model';
 
@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   lat: number;
   lon: number;
   cities: City[] = [];
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.searchForm = new FormGroup({

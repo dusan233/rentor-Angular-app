@@ -25,12 +25,12 @@ export class MapService {
   }
   changeCenter(cords: {lat: number, lon: number} ) {
     this.map.flyTo({
-      center: cords
+      center: cords,
+      zoom: 8
     })
   }
 
   addMarkerPopupForProperty(property: Property) {
-    console.log('dsds');
       const popup = new mapboxgl.Popup({offset: 20}).setHTML(`
         <div class='popup'>
           <div class='image-container'>
@@ -39,15 +39,15 @@ export class MapService {
             </a>
           </div>
           <div class='content'>
-            <h1>${property.community.name}</h1>
-            <p>$${property.community.price_min}/month</p>
+            <h1>${property.community ? property.community.name : 'No name'} </h1>
+            <p>$${property.community ? property.community.price_min : ''}/month</p>
           </div>
         </div>
       `)
 
       const el = document.createElement('div');
       el.innerHTML = `
-        <p>$${property.community.price_min}</p>
+        <p>$${property.community ? property.community.price_min : ''}</p>
       `;
       el.classList.add('marker');
 

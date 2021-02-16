@@ -13,6 +13,8 @@ import { PropertyComponent } from './homes/property/property.component';
 import { MapComponent } from './map/map.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FiltersComponent } from './filters/filters.component';
+import { FilterComponent } from './filters/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     PropertyComponent,
     MapComponent,
     SpinnerComponent,
-    NavbarComponent
+    NavbarComponent,
+    FiltersComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

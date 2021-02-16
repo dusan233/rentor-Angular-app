@@ -1,6 +1,8 @@
 .search-form {
   width: 100%;
   position: relative;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  border-radius: 35px;
 }
 .input-wrap input {
   border-radius: 20px;
@@ -72,6 +74,7 @@
   border-radius: 35px;
   list-style-type: none;
   padding: 25px 0px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 .cities-list li {
   padding: 5px 25px;

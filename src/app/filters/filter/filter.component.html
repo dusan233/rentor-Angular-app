@@ -1,0 +1,8 @@
+<div class="filter">
+    <div #fib (click)="onToggleFilterContent()" class="filter__btn">
+        {{filterName}}
+    </div>
+    <div #fic  class="filter__content">
+        <ng-content></ng-content>
+    </div>
+</div>
