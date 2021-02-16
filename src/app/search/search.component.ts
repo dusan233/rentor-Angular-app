@@ -92,7 +92,8 @@ export class SearchComponent implements OnInit, OnDestroy {
         type: this.searchType,
         lat: this.lat,
         lon: this.lon
-      }
+      },
+      queryParamsHandling: 'merge'
     })
   }
 
