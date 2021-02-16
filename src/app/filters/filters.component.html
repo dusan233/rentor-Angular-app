@@ -5,7 +5,7 @@
     <div class="filters__container">
         <form [formGroup]="filters">
             
-            <app-filter filterName="Property type">
+            <app-filter (filterClosed)="onSaveFilterPropertyType()" filterName="Property type">
             <div formGroupName="propType" class="filters__prop-type">
                 <label class="filters__checkbox" for="condo">
                     <input formControlName="condo" id="condo" type="checkbox">

@@ -38,7 +38,6 @@ export class FiltersComponent implements OnInit {
   }
 
   onSaveFilterPropertyType() {
-    console.log('propType');
     const selectedPropTypes: string[] = [];
     const formValues = this.filters.get('propType').value;
     for(let key in formValues) {
@@ -49,7 +48,7 @@ export class FiltersComponent implements OnInit {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
-        prop_type: selectedPropTypes,
+        prop_type: selectedPropTypes.length ? selectedPropTypes : null,
         
       },
       queryParamsHandling: 'merge'
