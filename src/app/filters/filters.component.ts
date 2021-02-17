@@ -35,13 +35,33 @@ export class FiltersComponent implements OnInit {
       price: new FormGroup({
         price_min: new FormControl(this.route.snapshot.queryParams.price_min || 0),
         price_max: new FormControl(this.route.snapshot.queryParams.price_max || 2000)
-      })
+      }),
+      sort: new FormControl(params.sort || 'relevance')
     })
 
     
   }
 
+  onSaveSort() {
+    
+    if(!('sort' in this.route.snapshot.queryParams) && this.filters.get('sort').value === 'relevance') return;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        sort: this.filters.get('sort').value
+      },
+      queryParamsHandling: 'merge'
+    })
+  }
+  onClearSort() {
+    this.filters.get('sort').setValue('relevance');
+    this.onSaveSort();
+  }
+
   onSaveFilterPrice() {
+    if(this.filters.get(['price', 'price_min']).value === 0 && this.filters.get(['price', 'price_max']).value === 2000
+    && !("price_min" in this.route.snapshot.queryParams) && !("price_max" in this.route.snapshot.queryParams)) return;
+
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {

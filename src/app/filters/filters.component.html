@@ -48,6 +48,30 @@
                 </div>
                 
             </app-filter>
+            <app-filter (filterClosed)="onSaveSort()" filterName="Sort">
+                <div class="sort">
+                    <label class="filters__checkbox" for="relevance">
+                        <input value="relevance" formControlName="sort" id="relevance" type="radio">
+                        Relevance
+                    </label>
+                    <label class="filters__checkbox" for="newest">
+                        <input value="newest" formControlName="sort" id="newest" type="radio">
+                        Newest
+                    </label>
+                    <label class="filters__checkbox" for="price_low">
+                        <input value="price_low" formControlName="sort" id="price_low" type="radio">
+                        Price low
+                    </label>
+                    <label class="filters__checkbox" for="price_high">
+                        <input value="price_high" formControlName="sort" id="price_high" type="radio">
+                        Price high
+                    </label>
+                    <div class="filters__controls">
+                        <button (click)="onClearSort()" class="filters__clear">Clear</button>
+                        <button (click)="onSaveSort()" class="filters__save">Save</button>
+                    </div>
+                </div>
+            </app-filter>
         </form>
     </div>
 </div>
