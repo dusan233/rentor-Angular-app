@@ -50,25 +50,86 @@
             </app-filter>
             <app-filter (filterClosed)="onSaveSort()" filterName="Sort">
                 <div class="sort">
-                    <label class="filters__checkbox" for="relevance">
+                    <label class="filters__radio" for="relevance">
                         <input value="relevance" formControlName="sort" id="relevance" type="radio">
                         Relevance
                     </label>
-                    <label class="filters__checkbox" for="newest">
+                    <label class="filters__radio" for="newest">
                         <input value="newest" formControlName="sort" id="newest" type="radio">
                         Newest
                     </label>
-                    <label class="filters__checkbox" for="price_low">
+                    <label class="filters__radio" for="price_low">
                         <input value="price_low" formControlName="sort" id="price_low" type="radio">
                         Price low
                     </label>
-                    <label class="filters__checkbox" for="price_high">
+                    <label class="filters__radio" for="price_high">
                         <input value="price_high" formControlName="sort" id="price_high" type="radio">
                         Price high
                     </label>
                     <div class="filters__controls">
                         <button (click)="onClearSort()" class="filters__clear">Clear</button>
                         <button (click)="onSaveSort()" class="filters__save">Save</button>
+                    </div>
+                </div>
+            </app-filter>
+            <app-filter (filterClosed)="onSaveMoreFilters()" filterName="More filters">
+                <div formGroupName="more" class="more-filters">
+                    <div class="more-filters__container">
+                        <div class="more-filters__heading">Min. beds</div>
+                        <label class="filters__radio" for="beds_any">
+                            <input value="any" formControlName="beds_min" id="beds_any" type="radio">
+                            Any
+                        </label>
+                        <label class="filters__radio" for="1_bed">
+                            <input value="1" formControlName="beds_min" id="1_bed" type="radio">
+                            1
+                        </label>
+                        <label class="filters__radio" for="2_beds">
+                            <input value="2" formControlName="beds_min" id="2_beds" type="radio">
+                            2
+                        </label>
+                        <label class="filters__radio" for="3_beds">
+                            <input value="3" formControlName="beds_min" id="3_beds" type="radio">
+                            3
+                        </label>
+                        <label class="filters__radio" for="4_beds">
+                            <input value="4" formControlName="beds_min" id="4_beds" type="radio">
+                            4
+                        </label>
+
+                        <div class="more-filters__heading">Min. baths</div>
+                        <label class="filters__radio" for="bath_any">
+                            <input value="any" formControlName="baths_min" id="bath_any" type="radio">
+                            Any
+                        </label>
+                        <label class="filters__radio" for="1_bath">
+                            <input value="1" formControlName="baths_min" id="1_bath" type="radio">
+                            1
+                        </label>
+                        <label class="filters__radio" for="2_baths">
+                            <input value="2" formControlName="baths_min" id="2_baths" type="radio">
+                            2
+                        </label>
+                        <label class="filters__radio" for="3_baths">
+                            <input value="3" formControlName="baths_min" id="3_baths" type="radio">
+                            3
+                        </label>
+                        <label class="filters__radio" for="4_baths">
+                            <input value="4" formControlName="baths_min" id="4_baths" type="radio">
+                            4
+                        </label>
+                        <label class="filters__checkbox" for="dogs">
+                            <input formControlName="allows_dogs" id="dogs" type="checkbox">
+                            Allows dogs
+                        </label>
+                        <label class="filters__checkbox" for="cats">
+                            <input formControlName="allows_cats" id="cats" type="checkbox">
+                            Allows cats
+                        </label>
+                    </div>
+                    <div class="filters__controls">
+                        <button (click)="onClearMoreFilters()" class="filters__clear">Clear</button>
+                        <button (click)="onSaveMoreFilters()" class="filters__save">Save</button>
                     </div>
                 </div>
             </app-filter>

@@ -36,10 +36,37 @@ export class FiltersComponent implements OnInit {
         price_min: new FormControl(this.route.snapshot.queryParams.price_min || 0),
         price_max: new FormControl(this.route.snapshot.queryParams.price_max || 2000)
       }),
-      sort: new FormControl(params.sort || 'relevance')
+      sort: new FormControl(params.sort || 'relevance'),
+      more: new FormGroup({
+        beds_min: new FormControl(this.route.snapshot.queryParams.beds_min || 'any'),
+        baths_min: new FormControl(this.route.snapshot.queryParams.baths_min || 'any'),
+        allows_dogs: new FormControl(this.route.snapshot.queryParams.allows_dogs || null),
+        allows_cats: new FormControl(this.route.snapshot.queryParams.allows_cats || null)
+      })
     })
 
     
+  }
+
+  onSaveMoreFilters() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        beds_min: this.filters.get(['more', 'beds_min']).value === 'any' ? null : this.filters.get(['more', 'beds_min']).value,
+        baths_min: this.filters.get(['more', 'baths_min']).value === 'any' ? null : this.filters.get(['more', 'baths_min']).value,
+        allows_dogs: this.filters.get(['more', 'allows_dogs']).value,
+        allows_cats: this.filters.get(['more', 'allows_cats']).value
+      },
+      queryParamsHandling: 'merge'
+    })
+  }
+
+  onClearMoreFilters() {
+    this.filters.get(['more', 'beds_min']).setValue("any");
+    this.filters.get(['more', 'baths_min']).setValue("any");
+    this.filters.get(['more', 'allows_dogs']).setValue(null);
+    this.filters.get(['more', 'allows_cats']).setValue(null);
+    this.onSaveMoreFilters();
   }
 
   onSaveSort() {

@@ -15,18 +15,20 @@
   display: flex;
   align-items: center;
 }
-.filters__checkbox {
+.filters__checkbox,
+.filters__radio {
   display: block;
   margin-bottom: 25px;
   display: flex;
   align-items: center;
 }
-.filters__checkbox input {
+.filters__checkbox input,
+.filters__radio input {
   width: 20px;
   height: 20px;
   margin-right: 15px;
 }
-.filters__checkbox:last-of-type {
+.filters__checkbox:last-of-type .filters__radio:last-of-type {
   margin: 0;
 }
 .filters__controls {
@@ -85,4 +87,25 @@
   border: 0;
   outline: 0;
   font-size: 17px;
+}
+.more-filters__heading {
+  margin-bottom: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.more-filters__container {
+  max-height: 250px;
+  overflow-y: scroll;
+}
+.more-filters__container::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 3px;
+}
+.more-filters__container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+.more-filters__container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
 }
