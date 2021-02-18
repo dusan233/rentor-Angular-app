@@ -17,8 +17,9 @@
                 </h2>
                 </div>
             <div class="part-two">
-                <div class="property__save">
-                    <i class="far fa-heart"></i>
+                <div (click)="onSaveProperty()" class="property__save">
+                    <i *ngIf="!onCheckIfSaved()" class="far fa-heart"></i>
+                    <i *ngIf="onCheckIfSaved()"style="color: red" class="fas fa-heart"></i>
                 </div>
             </div>
             </div>

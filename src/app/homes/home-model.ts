@@ -14,4 +14,5 @@ export interface Property {
     prop_type: string,
     photos: {href: string}[],
     rdc_web_url: string,
+    property_id: string
 }

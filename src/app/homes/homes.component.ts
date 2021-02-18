@@ -12,6 +12,7 @@ import { HomesService } from './homes.service';
 export class HomesComponent implements OnInit {
 
   properties: Property[] = [];
+  savedProperties: Property[] = [];
   loading = false;
 
   constructor(private route: ActivatedRoute, private mapService: MapService, private homesService: HomesService) {
@@ -19,6 +20,15 @@ export class HomesComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.savedProperties = JSON.parse(localStorage.getItem("properties"));
+    this.homesService.propertySavedRemoved.subscribe(property => {
+      const elIndex = this.savedProperties.findIndex(prop => prop.property_id === property.property_id)
+      if(elIndex === -1) {
+        this.savedProperties.push(property)
+      }else {
+        this.savedProperties = this.savedProperties.filter(prop => prop.property_id !== property.property_id);
+      }
+    })
     this.route.queryParams.subscribe((params) => {
       const {type, lat, lon, ...rest} = params;
       console.log(rest);

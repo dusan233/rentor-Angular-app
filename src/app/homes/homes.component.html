@@ -6,7 +6,7 @@
     <div class="main">
         <div class="results">
             <div *ngIf="!loading && properties.length">
-                <app-property *ngFor="let property of properties" [property]="property"></app-property>
+                <app-property *ngFor="let property of properties" [savedProperties]="savedProperties" [property]="property"></app-property>
             </div>
             <app-spinner *ngIf="loading"></app-spinner>
         </div>
