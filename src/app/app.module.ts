@@ -15,6 +15,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FiltersComponent } from './filters/filters.component';
 import { FilterComponent } from './filters/filter/filter.component';
+import { SavedPropertiesComponent } from './saved-properties/saved-properties.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FilterComponent } from './filters/filter/filter.component';
     SpinnerComponent,
     NavbarComponent,
     FiltersComponent,
-    FilterComponent
+    FilterComponent,
+    SavedPropertiesComponent
   ],
   imports: [
     BrowserModule,

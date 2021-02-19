@@ -54,8 +54,8 @@ export class FiltersComponent implements OnInit {
       queryParams: {
         beds_min: this.filters.get(['more', 'beds_min']).value === 'any' ? null : this.filters.get(['more', 'beds_min']).value,
         baths_min: this.filters.get(['more', 'baths_min']).value === 'any' ? null : this.filters.get(['more', 'baths_min']).value,
-        allows_dogs: this.filters.get(['more', 'allows_dogs']).value,
-        allows_cats: this.filters.get(['more', 'allows_cats']).value
+        allows_dogs: this.filters.get(['more', 'allows_dogs']).value ? this.filters.get(['more', 'allows_dogs']).value: null,
+        allows_cats: this.filters.get(['more', 'allows_cats']).value ? this.filters.get(['more', 'allows_cats']).value: null
       },
       queryParamsHandling: 'merge'
     })
