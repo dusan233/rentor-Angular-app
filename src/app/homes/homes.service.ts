@@ -40,6 +40,10 @@ export class HomesService {
     }
   }
 
+  getSavedProperties() {
+    return JSON.parse(localStorage.getItem("properties"))
+  }
+
   saveProperty(property: Property) {
     let savedProperties: Property[] = JSON.parse(localStorage.getItem('properties')) || [];
     const elIndex = savedProperties.findIndex(prop => prop.property_id === property.property_id)

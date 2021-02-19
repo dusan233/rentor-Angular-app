@@ -20,7 +20,7 @@ export class HomesComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.savedProperties = JSON.parse(localStorage.getItem("properties"));
+    this.savedProperties = this.homesService.getSavedProperties();
     this.homesService.propertySavedRemoved.subscribe(property => {
       const elIndex = this.savedProperties.findIndex(prop => prop.property_id === property.property_id)
       if(elIndex === -1) {
