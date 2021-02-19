@@ -1,5 +1,5 @@
 .home__container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-image: url("../../assets/c8dd7889-d579-49c7-9650-24ff71a82190.webp");
   background-position: center;
@@ -17,7 +17,6 @@
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   border-radius: 35px;
   padding: 10px;
 }
@@ -51,4 +50,18 @@
 }
 .home__nav li:nth-child(1) {
   margin-right: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .home__content {
+    position: relative;
+    transform: translate(-50%, 0);
+  }
+  .home__container {
+    height: 100%;
+    padding: 40px 0 100px 0;
+    background-image: none;
+  }
+  .home__heading {
+    color: black;
+  }
 }
