@@ -1,1 +1,8 @@
 <app-navbar></app-navbar>
+<div class="container">
+    <h1 class="heading">Saved Properties</h1>
+    <app-property *ngFor="let property of savedProperties"
+    [savedProperties]="savedProperties" [property]="property"
+    >
+    </app-property>
+</div>
