@@ -97,3 +97,19 @@
   border-radius: 4px;
   text-decoration: none;
 }
+@media only screen and (max-width: 675px) {
+  .property__container {
+    display: block;
+  }
+  .btn-classic {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .property__price {
+    display: block;
+    margin-top: 20px;
+  }
+  .property__up {
+    padding-top: 20px;
+  }
+}
