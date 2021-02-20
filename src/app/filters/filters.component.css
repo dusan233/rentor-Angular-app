@@ -14,6 +14,7 @@
 .filters__container form {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .filters__checkbox,
 .filters__radio {
@@ -108,4 +109,17 @@
 .more-filters__container::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 3px;
+}
+@media only screen and (max-width: 980px) {
+  .filters {
+    display: block;
+    height: 140px;
+  }
+  .search-container {
+    margin-top: 20px;
+  }
+  .filters__container {
+    margin-top: 20px;
+    padding: 0px;
+  }
 }

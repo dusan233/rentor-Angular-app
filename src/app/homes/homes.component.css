@@ -21,3 +21,19 @@
   flex-basis: 130px;
 }
 /* for property component */
+@media only screen and (max-width: 1350px) {
+  .map {
+    flex: 0.7;
+  }
+}
+@media only screen and (max-width: 1125px) {
+  .map {
+    display: none;
+  }
+  .main {
+    height: auto;
+  }
+  .results {
+    overflow: none;
+  }
+}

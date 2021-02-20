@@ -73,6 +73,7 @@
   background: white;
   border-radius: 35px;
   list-style-type: none;
+  z-index: 1000;
   padding: 25px 0px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
