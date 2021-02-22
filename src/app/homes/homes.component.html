@@ -8,8 +8,11 @@
             <div *ngIf="!loading && properties.length">
                 <app-property *ngFor="let property of properties" [savedProperties]="savedProperties" [property]="property"></app-property>
             </div>
+            <div *ngIf="!loading && !properties.length">
+                No results found.
+            </div>
             <app-spinner *ngIf="loading"></app-spinner>
-            <app-pagination [totalPages]="totalPages" [currentPage]="currentPage"></app-pagination>
+            <app-pagination *ngIf="!loading && properties.length" [totalPages]="totalPages" [currentPage]="currentPage"></app-pagination>
         </div>
 
         <div class="map">
