@@ -55,7 +55,8 @@ export class FiltersComponent implements OnInit {
         beds_min: this.filters.get(['more', 'beds_min']).value === 'any' ? null : this.filters.get(['more', 'beds_min']).value,
         baths_min: this.filters.get(['more', 'baths_min']).value === 'any' ? null : this.filters.get(['more', 'baths_min']).value,
         allows_dogs: this.filters.get(['more', 'allows_dogs']).value ? this.filters.get(['more', 'allows_dogs']).value: null,
-        allows_cats: this.filters.get(['more', 'allows_cats']).value ? this.filters.get(['more', 'allows_cats']).value: null
+        allows_cats: this.filters.get(['more', 'allows_cats']).value ? this.filters.get(['more', 'allows_cats']).value: null,
+        page: 1
       },
       queryParamsHandling: 'merge'
     })
@@ -75,7 +76,8 @@ export class FiltersComponent implements OnInit {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
-        sort: this.filters.get('sort').value
+        sort: this.filters.get('sort').value,
+        page: 1
       },
       queryParamsHandling: 'merge'
     })
@@ -93,7 +95,8 @@ export class FiltersComponent implements OnInit {
       relativeTo: this.route,
       queryParams: {
         price_min: this.filters.get(['price', 'price_min']).value,
-        price_max: this.filters.get(['price', 'price_max']).value
+        price_max: this.filters.get(['price', 'price_max']).value,
+        page: 1
       },
       queryParamsHandling: 'merge'
     })
@@ -105,7 +108,8 @@ export class FiltersComponent implements OnInit {
       relativeTo: this.route,
       queryParams: {
         price_min: null,
-        price_max: null
+        price_max: null,
+        page: 1
       },
       queryParamsHandling: 'merge'
     })
@@ -123,7 +127,7 @@ export class FiltersComponent implements OnInit {
       relativeTo: this.route,
       queryParams: {
         prop_type: selectedPropTypes.length ? selectedPropTypes : null,
-        
+        page: 1
       },
       queryParamsHandling: 'merge'
     })
@@ -135,7 +139,7 @@ export class FiltersComponent implements OnInit {
       relativeTo: this.route,
       queryParams: {
         prop_type:null ,
-        
+        page: 1,
       },
       queryParamsHandling: 'merge'
     })

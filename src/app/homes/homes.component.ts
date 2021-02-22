@@ -13,6 +13,8 @@ export class HomesComponent implements OnInit {
 
   properties: Property[] = [];
   savedProperties: Property[] = [];
+  totalPages: number;
+  currentPage: number;
   loading = false;
 
   constructor(private route: ActivatedRoute, private mapService: MapService, private homesService: HomesService) {
@@ -30,8 +32,9 @@ export class HomesComponent implements OnInit {
       }
     })
     this.route.queryParams.subscribe((params) => {
-      const {type, lat, lon, ...rest} = params;
-      console.log(rest);
+      const {type, lat, lon, page, ...rest} = params;
+     
+      this.currentPage = page ? parseInt(page) : 1;
       const transformedParams = {};
       for (let key in rest) {
         if(Array.isArray(rest[key])) {
@@ -40,10 +43,10 @@ export class HomesComponent implements OnInit {
           transformedParams[key] = rest[key]
         }
       }
-      console.log(transformedParams);
       this.loading = true;
-      this.homesService.getHomes(transformedParams, type).subscribe((data) => {
+      this.homesService.getHomes(transformedParams, type, page).subscribe((data) => {
         console.log(data);
+        this.totalPages = Math.ceil(data.meta.matching_rows/20);
         this.mapService.changeCenter({lat, lon});
         this.mapService.markers.forEach(el => {
           el.remove();

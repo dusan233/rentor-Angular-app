@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FiltersComponent } from './filters/filters.component';
 import { FilterComponent } from './filters/filter/filter.component';
 import { SavedPropertiesComponent } from './saved-properties/saved-properties.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SavedPropertiesComponent } from './saved-properties/saved-properties.co
     NavbarComponent,
     FiltersComponent,
     FilterComponent,
-    SavedPropertiesComponent
+    SavedPropertiesComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<div class="pagination">
+    <button (click)="onPrevPage()" class="pagination__nav">
+        <i class="fas fa-angle-left"></i>
+    </button>
+    <button (click)="onSelectPage(page)" *ngFor="let page of visiblePages" [ngClass]="{'pagination__nav': true, 'pagination__nav--active': page === currentPage}" >
+        {{page}}
+    </button>
+    <button (click)="onNextPage()" class="pagination__nav">
+        <i class="fas fa-angle-right"></i>
+    </button>
+    
+</div>

@@ -7,7 +7,6 @@ interface PropertiesResponse {
   meta: {
     matching_rows: number,
     returned_rows: number,
-
   },
   properties: Property[]
 }
@@ -24,7 +23,7 @@ export class HomesService {
   propertySavedRemoved = new Subject<Property>();
   
 
-  getHomes(params: {[key: string]: any}, type: string) {
+  getHomes(params: {[key: string]: any}, type: string, page: any) {
     console.log('ds', params);
     if(type === "rent") {
       return this.http.get<PropertiesResponse>('https://realtor.p.rapidapi.com/properties/v2/list-for-rent', {
@@ -34,7 +33,7 @@ export class HomesService {
           price_max: "2000",
           ...params,
           limit: "20",
-          offset: "0"
+          offset: page ? String(page * 20) : "0"
         }
       })
     }
