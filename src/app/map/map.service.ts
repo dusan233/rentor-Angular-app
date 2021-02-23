@@ -35,19 +35,19 @@ export class MapService {
         <div class='popup'>
           <div class='image-container'>
             <a target="_blank" href="${property.rdc_web_url}">
-            <img src="${property.photos[0].href}" />
+            <img src="${property.photos[0] ? property.photos[0].href : ''}" />
             </a>
           </div>
           <div class='content'>
             <h1>${property.community ? property.community.name : 'No name'} </h1>
-            <p>$${property.community ? property.community.price_min : ''}/month</p>
+            <p>$${property.price || (property.community ? property.community.price_min : '')}/month</p>
           </div>
         </div>
       `)
 
       const el = document.createElement('div');
       el.innerHTML = `
-        <p>$${property.community ? property.community.price_min : ''}</p>
+        <p>$${property.price || ( property.community ? property.community.price_min : '')}</p>
       `;
       el.classList.add('marker');
 

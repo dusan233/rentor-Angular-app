@@ -10,6 +10,9 @@ export interface Property {
         beds_max: number,
         sqft_min: number
     },
+    beds?: number,
+    baths?: number,
+    price?: number,
     prop_status: string,
     prop_type: string,
     photos: {href: string}[],

@@ -76,13 +76,6 @@ export class SearchComponent implements OnInit, OnDestroy {
     })
   }
 
-  // onFocus() {
-  //   this.inputFocused = true;
-  // }
-  // onFocusOut() {
-  //   // this.searchForm.controls['searchInput'].setValue("");
-  //   this.inputFocused = false;
-  // }
   
   onSubmit() {
     this.router.navigate(['homes'], {
@@ -97,44 +90,47 @@ export class SearchComponent implements OnInit, OnDestroy {
     })
   }
 
-  onSelectCity(e: MouseEvent | KeyboardEvent, city: string, cityCords: {lat: number, lon: number}) {
-    if(e.type === 'keydown') {
-      if ((e as KeyboardEvent).key === "Enter") {
-        this.searchForm.controls['searchInput'].setValue(city);
-        this.canSubmit = true;
-        this.inputFocused = false;
-        this.lat = cityCords.lat;
-        this.lon = cityCords.lon;
-      }
-    }else {
+  onSelectCity(e: MouseEvent, city: string, cityCords: {lat: number, lon: number}) {
+    // if(e.type === 'keydown') {
+    //   e.stopImmediatePropagation();
+    //   if ((e as KeyboardEvent).key === "Enter") {
+    //     this.searchForm.controls['searchInput'].setValue(city);
+    //     this.canSubmit = true;
+    //     this.inputFocused = false;
+    //     this.lat = cityCords.lat;
+    //     this.lon = cityCords.lon;
+    //     document.getElementById("cityInput").focus();
+    //   }
+    // }else {
       this.searchForm.controls['searchInput'].setValue(city);
       this.canSubmit = true;
       this.inputFocused = false;
       this.lat = cityCords.lat;
       this.lon = cityCords.lon;
-    }
+      document.getElementById("cityInput").focus();
+    
     
   }
 
-  onKeyDown(e: KeyboardEvent) {
-    if(e.key === "ArrowDown") {
-      console.log((<HTMLInputElement>e.target).dataset)
-      if((<HTMLInputElement>e.target).dataset.index === '-1') {
-        (document.querySelector("[data-index='0']") as HTMLElement).focus()
-      }else if((<HTMLInputElement>e.target).dataset.index === String(this.cities.length - 1)) {
-        (document.querySelector("[data-index='-1']") as HTMLElement).focus()
-      }else {
-        (<HTMLElement>(<HTMLElement>e.target).nextSibling).focus()
-      }
-    }else if(e.key === "ArrowUp") {
-      if((<HTMLInputElement>e.target).dataset.index === '-1') {
-        const index = this.cities.length - 1 + "";
-        (document.querySelector(`[data-index='${index}']`) as HTMLElement).focus()
-      }else if((<HTMLInputElement>e.target).dataset.index === '0') {
-        (document.querySelector("[data-index='-1']") as HTMLElement).focus()
-      }else {
-        (<HTMLElement>(<HTMLElement>e.target).previousSibling).focus()
-      }
-    }
-  }
+  // onKeyDown(e: KeyboardEvent) {
+  //   if(e.key === "ArrowDown") {
+  //     console.log((<HTMLInputElement>e.target).dataset)
+  //     if((<HTMLInputElement>e.target).dataset.index === '-1') {
+  //       (document.querySelector("[data-index='0']") as HTMLElement).focus()
+  //     }else if((<HTMLInputElement>e.target).dataset.index === String(this.cities.length - 1)) {
+  //       (document.querySelector("[data-index='-1']") as HTMLElement).focus()
+  //     }else {
+  //       (<HTMLElement>(<HTMLElement>e.target).nextSibling).focus()
+  //     }
+  //   }else if(e.key === "ArrowUp") {
+  //     if((<HTMLInputElement>e.target).dataset.index === '-1') {
+  //       const index = this.cities.length - 1 + "";
+  //       (document.querySelector(`[data-index='${index}']`) as HTMLElement).focus()
+  //     }else if((<HTMLInputElement>e.target).dataset.index === '0') {
+  //       (document.querySelector("[data-index='-1']") as HTMLElement).focus()
+  //     }else {
+  //       (<HTMLElement>(<HTMLElement>e.target).previousSibling).focus()
+  //     }
+  //   }
+  // }
 }
