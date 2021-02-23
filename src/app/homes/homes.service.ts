@@ -40,7 +40,7 @@ export class HomesService {
   }
 
   getSavedProperties() {
-    return JSON.parse(localStorage.getItem("properties"))
+    return JSON.parse(localStorage.getItem("properties")) || []
   }
 
   saveProperty(property: Property) {
